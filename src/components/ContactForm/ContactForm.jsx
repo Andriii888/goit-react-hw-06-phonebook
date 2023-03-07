@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import { addNumber } from "../redux/numberSlice";
-
+import { addNumber } from '../redux/numberSlice';
 
 export function ContactForm() {
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ export function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-   dispatch(addNumber(name,number));
+    dispatch(addNumber(name, number));
     reset();
   };
 

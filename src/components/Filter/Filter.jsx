@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import { useDispatch} from "react-redux";
-import {findeName} from '../redux/filterSlice';
-
+import { useDispatch } from 'react-redux';
+import { findeName } from '../redux/filterSlice';
 
 export const FilterByName = () => {
   const dispatch = useDispatch();
   const changeFilter = e => {
-   dispatch(findeName(e.currentTarget.value))
+    dispatch(findeName(e.currentTarget.value));
   };
 
   return (

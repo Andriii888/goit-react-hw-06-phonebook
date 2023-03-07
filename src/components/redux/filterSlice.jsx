@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const filtersInitialState = {
-  finde:''
+  finde: '',
 };
 
 const filtersSlice = createSlice({
-  name: "filters",
+  name: 'filters',
   initialState: filtersInitialState,
   reducers: {
     findeName(state, action) {
-      state.finde=action.payload;
+      state.finde = action.payload;
     },
   },
 });

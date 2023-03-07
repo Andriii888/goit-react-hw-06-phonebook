@@ -5,15 +5,13 @@ import { FilterByName } from './Filter/Filter';
 import { Appstyle } from './App.styled';
 
 export function App() {
-
   return (
     <Appstyle>
       <h1>PhoneBook</h1>
-      <ContactForm  />
+      <ContactForm />
       <h2>Contacts</h2>
-      <FilterByName   />
-      <ContactList
-      />
+      <FilterByName />
+      <ContactList />
     </Appstyle>
   );
 }
