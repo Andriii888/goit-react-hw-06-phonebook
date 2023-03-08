@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { addNumber } from '../redux/numberSlice';
+import { addNumber } from '../../redux/numberSlice';
 
 export function ContactForm() {
   const dispatch = useDispatch();
-
+  const contactCurrent = useSelector(state => state.numbers);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [done, setDone] = useState(false);
 
   const handleInputChange = e => {
+    setDone(false);
     if (e.currentTarget.name === 'name') {
       return setName(e.currentTarget.value);
     }
@@ -18,6 +20,18 @@ export function ContactForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setDone(false);
+    const repietedContact = contactCurrent.filter(contact => {
+      const saved = contact.name.toLowerCase() === name.toLowerCase();
+      
+        return saved&&name;
+      
+    });
+    if (repietedContact.length > 0) {
+      return setDone(true);
+      // reset();
+    }
+
     dispatch(addNumber(name, number));
     reset();
   };
@@ -58,6 +72,7 @@ export function ContactForm() {
           Add contact
         </button>
       </form>
+      {done && <h1>This contact {name} already done</h1>}
     </>
   );
 }
