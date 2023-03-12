@@ -23,13 +23,12 @@ export function ContactForm() {
     setDone(false);
     const repietedContact = contactCurrent.filter(contact => {
       const saved = contact.name.toLowerCase() === name.toLowerCase();
-      
-        return saved&&name;
-      
+
+      return saved && name;
     });
     if (repietedContact.length > 0) {
       return setDone(true);
-      // reset();
+      
     }
 
     dispatch(addNumber(name, number));
